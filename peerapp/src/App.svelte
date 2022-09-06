@@ -4,6 +4,8 @@
   import { Peer } from './lib/peerjs';
 
   console.log("initializing connnection to peers.");
+
+  var lastPeerId;
   var peer =  new Peer();
 
   peer = new Peer(null, { debug: 2 });
@@ -12,7 +14,6 @@
                         // Workaround for peer.reconnect deleting previous id
                         if (peer.id === null) {
                             console.log('Received null id from peer open');
-                            peer.id = lastPeerId;
                         } else {
                             lastPeerId = peer.id;
                         }
